@@ -6,23 +6,8 @@ function render(){
         lowerNames = names.map(name => name.toLowerCase());
     }
     document.getElementById('counter').innerHTML = correct;
+    document.getElementById('input').value = ''
 };
-
-// function checkName() {
-//     let charList = document.getElementById('char-list');
-//     let input = document.getElementById('input').value;
-//     if (lowerNames.includes(input)){
-//         let index = lowerNames.indexOf(input);
-//         lowerNames.splice(index, 1);
-
-//         let name = input.charAt(0).toUpperCase() + input.slice(1);
-//         charList.innerHTML += `<p>${name}</p>`
-//         correct++;
-//         render();
-//     }else{
-//         console.log('no')
-//     }
-// }
 
 function checkName() {
     let charList = document.getElementById('char-list');
@@ -46,6 +31,12 @@ function checkName() {
 }
 
 function removeHyphens(str) {
-    return str.replace(/-/g, '');
+    return str.replace(/-/g, '').replace(/\s/g, '');
 }
 
+
+function enterPress(event) {
+    if (event.keyCode === 13) {
+        checkName();
+    }
+}
