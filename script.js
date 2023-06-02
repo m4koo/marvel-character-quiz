@@ -27,6 +27,8 @@ function checkName() {
         render();
     } else {
         console.log('no');
+        animateIncorrectAnswer();
+        render();
     }
 }
 
@@ -34,9 +36,18 @@ function removeHyphens(str) {
     return str.replace(/-/g, '').replace(/\s/g, '');
 }
 
-
 function enterPress(event) {
     if (event.keyCode === 13) {
         checkName();
     }
+}
+
+function animateIncorrectAnswer() {
+    let mainDiv = document.getElementById('main');
+    mainDiv.classList.add("shake");
+            
+    // Timeout, um die Animation zurückzusetzen
+    setTimeout(function() {
+        mainDiv.classList.remove("shake");
+    }, 100); // Nach 1 Sekunde die Animation zurücksetzen
 }
