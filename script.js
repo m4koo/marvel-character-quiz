@@ -22,7 +22,7 @@ function checkName() {
         let parts = foundName.split('-');
         let name = parts.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join('-');
         
-        charList.innerHTML += `<p>${name}</p>`;
+        charList.innerHTML += `<p class="bg-secondary">${name}</p>`;
         correct++;
         render();
     } else {
